@@ -1,3 +1,4 @@
+"use client"
 import Keybord from "@/components/Keyboard";
 import Testbord from "@/components/Testbord";
 
