@@ -26,7 +26,10 @@ const TestResults = ({ finalParagraph }) => {
         {
           //reload button
           <div>
-            <button className="absolute -top-2 -right-2 p-2 h-9 w-9 flex justify-center items-center bg-red-500 text-white rounded-full">
+            <button
+              className="absolute -top-2 -right-2 p-2 h-9 w-9 flex justify-center items-center bg-red-500 text-white rounded-full"
+              onClick={() => window.location.reload()}
+            >
               x
             </button>
           </div>

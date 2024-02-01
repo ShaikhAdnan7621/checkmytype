@@ -5,7 +5,6 @@ import TestResults from "./TestResults";
 const keyTypeEffectsrc = "/keyTypeEffect.mp3";
 const wrongKeyTypeEffectsrc = "wrongKeyTypeEffect.mp3";
 
-
 const Testbord = ({ para: initialPara }) => {
   const [inputText, setInput] = useState("");
   const [finalParagraph, setFinalParagraph] = useState([]);
@@ -15,15 +14,6 @@ const Testbord = ({ para: initialPara }) => {
   const [countdown, setCountdown] = useState(60);
   const [activeKey, setActiveKey] = useState("");
   const [completedWords, setCompletedWords] = useState("");
-  const keyTypeEffect = useRef();
-  const wrongKeyTypeEffect = useRef();
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      keyTypeEffect.current = new Audio(keyTypeEffectsrc);
-      wrongKeyTypeEffect.current = new Audio(wrongKeyTypeEffectsrc);
-    }
-  }, []);
 
   const startTest = () => {
     setIsTestActive(true);
@@ -64,7 +54,9 @@ const Testbord = ({ para: initialPara }) => {
           // prettier-ignore
           const expectedText = para.split(" ")[0].slice(0, (inputText + key).length);
           // prettier-ignore
-          (inputText + key === expectedText ? keyTypeEffect : wrongKeyTypeEffect).play();
+          const audioSrc = inputText + key === expectedText ? keyTypeEffectsrc : wrongKeyTypeEffectsrc;
+          const audio = new Audio(audioSrc);
+          audio.play();
         }
       };
       document.addEventListener("keydown", keydownHandler);
