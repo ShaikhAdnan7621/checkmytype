@@ -26,9 +26,6 @@ function Key({ letter, activeKey, size }) {
 export default function Keyboard({ pressedkey }) {
   const [activeKey, setActiveKey] = useState(pressedkey);
 
-  useEffect(() => {
-    setActiveKey(pressedkey);
-  }, [pressedkey]);
 
   // prettier-ignore
   const keyboardLayout = [

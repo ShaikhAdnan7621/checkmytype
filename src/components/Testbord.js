@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from "react";
 import Keyboard from "./Keyboard";
 import TestResults from "./TestResults";
-
+const keyTypeEffectsrc = "/keyTypeEffect.mp3";
+const wrongKeyTypeEffectsrc = "wrongKeyTypeEffect.mp3";
 const Testbord = ({ para: initialPara }) => {
   const [inputText, setInput] = useState("");
   const [finalParagraph, setFinalParagraph] = useState([]);
@@ -12,6 +13,8 @@ const Testbord = ({ para: initialPara }) => {
   const [countdown, setCountdown] = useState(60);
   const [activeKey, setActiveKey] = useState("");
   const [completedWords, setCompletedWords] = useState("");
+  const keyTypeEffect = new Audio(keyTypeEffectsrc);
+  const wrongKeyTypeEffect = new Audio(wrongKeyTypeEffectsrc);
 
   const startTest = () => {
     setIsTestActive(true);
@@ -46,9 +49,14 @@ const Testbord = ({ para: initialPara }) => {
           setInput("");
         } else if (
           // prettier-ignore
-          !["Enter","Shift","Control","Alt","Tab","CapsLock","Meta","Escape","ArrowRight","ArrowLeft","AltGraph","ArrowUp","ArrowDown",].includes(key)
+          !["Enter",  "Shift",  "Control",  "Alt",  "Tab",  "CapsLock",  "Meta",  "Escape",  "ArrowRight",  "ArrowLeft",  "AltGraph",  "ArrowUp",  "ArrowDown", "Unidentified",  "AudioVolumeMute",
+          "AudioVolumeUp",  "AudioVolumeDown",  "MediaTrackPrevious",  "MediaPlayPause",  "MediaTrackNext",  "Delete",  "Home",  "End",  "PageUp",  "PageDown",  "NumLock",  "Clear"].includes(key)
         ) {
           setInput(inputText + key);
+          // prettier-ignore
+          const expectedText = para.split(" ")[0].slice(0, (inputText + key).length);
+          // prettier-ignore
+          (inputText + key === expectedText ? keyTypeEffect : wrongKeyTypeEffect).play();
         }
       };
       document.addEventListener("keydown", keydownHandler);

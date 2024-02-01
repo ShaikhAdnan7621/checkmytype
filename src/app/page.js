@@ -1,4 +1,6 @@
+"use Client"
 import Testbord from "@/components/Testbord";
+// import keytype.mp3
 
 // let randomnumber = Math.floor(Math.random() * 7);
 export default function Home() {
@@ -18,6 +20,8 @@ export default function Home() {
     `Education is the cornerstone of progress. It empowers individuals, fosters critical thinking, and promotes social and economic development. In the age of information, lifelong learning is more important than ever. Education is not just about acquiring knowledge, but also about learning how to think critically and solve problems. It's about learning to adapt to change and to strive for continuous improvement. The pursuit of education is a lifelong journey that shapes our understanding of the world and our place in it.`,
   ][Math.floor(Math.random() * 7)];
 
+  /// play keytupe.mp3 fome publick folder
+  
   return (
     <main>
       <Testbord para={para} />
