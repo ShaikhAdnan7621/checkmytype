@@ -1,9 +1,11 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Keyboard from "./Keyboard";
 import TestResults from "./TestResults";
 const keyTypeEffectsrc = "/keyTypeEffect.mp3";
 const wrongKeyTypeEffectsrc = "wrongKeyTypeEffect.mp3";
+
+
 const Testbord = ({ para: initialPara }) => {
   const [inputText, setInput] = useState("");
   const [finalParagraph, setFinalParagraph] = useState([]);
@@ -13,8 +15,15 @@ const Testbord = ({ para: initialPara }) => {
   const [countdown, setCountdown] = useState(60);
   const [activeKey, setActiveKey] = useState("");
   const [completedWords, setCompletedWords] = useState("");
-  const keyTypeEffect = new Audio(keyTypeEffectsrc);
-  const wrongKeyTypeEffect = new Audio(wrongKeyTypeEffectsrc);
+  const keyTypeEffect = useRef();
+  const wrongKeyTypeEffect = useRef();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      keyTypeEffect.current = new Audio(keyTypeEffectsrc);
+      wrongKeyTypeEffect.current = new Audio(wrongKeyTypeEffectsrc);
+    }
+  }, []);
 
   const startTest = () => {
     setIsTestActive(true);
@@ -24,7 +33,6 @@ const Testbord = ({ para: initialPara }) => {
       setCompleted(true);
     }, 60000);
   };
-
   const animatekey = (key) => {
     setActiveKey(key);
     setTimeout(() => {
