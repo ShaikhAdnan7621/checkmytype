@@ -24,9 +24,7 @@ function Key({ letter, activeKey, size }) {
 }
 
 export default function Keyboard({ pressedkey }) {
-  const [activeKey, setActiveKey] = useState(pressedkey);
-
-
+  console.log(pressedkey);
   // prettier-ignore
   const keyboardLayout = [
     {"`":8, "1":10, "2":10, "3":10, "4":10, "5":10, "6":10, "7":10, "8":10, "9":10, "0":10, "-":10, "=":10, "Back":21},
@@ -43,7 +41,7 @@ export default function Keyboard({ pressedkey }) {
           {Object.entries(row).map(([letter, size]) => (
             <Key
               letter={letter}
-              activeKey={activeKey}
+              activeKey={pressedkey}
               key={letter}
               size={size}
             />

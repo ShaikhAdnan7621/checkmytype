@@ -24,6 +24,7 @@ const Testbord = ({ para: initialPara }) => {
     }, 60000);
   };
   const animatekey = (key) => {
+    console.log(key);
     setActiveKey(key);
     setTimeout(() => {
       setActiveKey("");
