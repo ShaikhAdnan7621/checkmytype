@@ -1,8 +1,8 @@
-"use Client"
-import Testbord from "@/components/Testbord";
-// import keytype.mp3
 
-// let randomnumber = Math.floor(Math.random() * 7);
+import React from "react";
+import Testbord from "@/components/Testbord";
+
+//   {Paragrapharr[Math.floor(Math.random() * Paragrapharr.length)]}
 export default function Home() {
   const para = [
     `The quick brown fox jumps over the lazy dog. This sentence is often used in typing tests as it contains every letter of the English alphabet. Typing accurately and quickly is an essential skill in the digital age. It's not just about speed, but also about precision and efficiency. Mastering the keyboard can save valuable time and make you more productive in your work or studies.`,
@@ -20,13 +20,9 @@ export default function Home() {
     `Education is the cornerstone of progress. It empowers individuals, fosters critical thinking, and promotes social and economic development. In the age of information, lifelong learning is more important than ever. Education is not just about acquiring knowledge, but also about learning how to think critically and solve problems. It's about learning to adapt to change and to strive for continuous improvement. The pursuit of education is a lifelong journey that shapes our understanding of the world and our place in it.`,
   ][Math.floor(Math.random() * 7)];
 
-  /// play keytupe.mp3 fome publick folder
-  
   return (
     <main>
       <Testbord para={para} />
     </main>
   );
 }
-
-//   {Paragrapharr[Math.floor(Math.random() * Paragrapharr.length)]}
