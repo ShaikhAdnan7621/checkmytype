@@ -1,3 +1,4 @@
+"use client";
 import Testbord from "@/components/Testbord";
 import React from "react";
 
