@@ -64,7 +64,9 @@ export default function Page() {
         "👿",
         "👽",
     ];
-    let randomEmojies = allEmojis.sort(() => 0.5 - Math.random()).slice(0, 8);
+    let randomEmojies = allEmojis
+        .sort(() => 0.5 - Math.random())
+        .slice(0, emojiescounts);
     randomEmojies = randomEmojies.concat(randomEmojies);
     randomEmojies.sort(() => 0.5 - Math.random());
 
@@ -77,11 +79,11 @@ export default function Page() {
     const [gameOver, setGameOver] = useState(false);
     const [gameWon, setGameWon] = useState(false);
 
-    const audio = new Audio(keyTypeEffectsrc);
-    audio.preload = "auto"; // Preload the audio file
-
-    const wrongAudio = new Audio(wrongKeyTypeEffectsrc);
-    wrongAudio.preload = "auto"; // Preload the audio file
+    // play audion
+    const playaudio = (src) => {
+        const audio = new Audio(src);
+        audio.play();
+    };
 
     useEffect(() => {
         let intervalId;
@@ -118,16 +120,16 @@ export default function Page() {
 
         setFlippedCards([...flippedCards, index]);
         if (lastpickedcard === null) {
-            audio.play(); // Play the sound effect
+            playaudio(keyTypeEffectsrc);
             setLastpickedcard(index);
             return;
         }
         if (emoji[index] === emoji[lastpickedcard]) {
-            audio.play(); // Play the sound effect
+            playaudio(keyTypeEffectsrc);
             setMatchedCards([...matchedCards, index, lastpickedcard]);
             setLastpickedcard(null);
         } else {
-            wrongAudio.play(); // Play the wrong sound effect
+            playaudio(wrongKeyTypeEffectsrc);
             setTimeout(() => {
                 setFlippedCards(
                     flippedCards.filter(
@@ -141,7 +143,7 @@ export default function Page() {
     const handleRestart = () => {
         let randomEmojies = allEmojis
             .sort(() => 0.5 - Math.random())
-            .slice(0, 8);
+            .slice(0, emojiescounts);
         randomEmojies = randomEmojies.concat(randomEmojies);
         randomEmojies.sort(() => 0.5 - Math.random());
         setEmoji(randomEmojies);
@@ -161,7 +163,7 @@ export default function Page() {
             .toString()
             .padStart(2, "0")}`;
     };
-    
+
     const gameResultMessage = () => {
         if (gameWon) {
             return (
@@ -269,7 +271,6 @@ export default function Page() {
                     </div>
                 )}
             </div>
-    
         </div>
     );
 }

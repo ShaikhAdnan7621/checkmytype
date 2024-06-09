@@ -2,7 +2,7 @@
 import Testbord from "@/components/Testbord";
 import React from "react";
 
-export default function page() {
+export default function Page() {
     const para = [
         `The quick brown fox jumps over the lazy dog. This sentence is often used in typing tests as it contains every letter of the English alphabet. Typing accurately and quickly is an essential skill in the digital age. It's not just about speed, but also about precision and efficiency. Mastering the keyboard can save valuable time and make you more productive in your work or studies.`,
 

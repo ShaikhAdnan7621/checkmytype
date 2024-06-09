@@ -12,7 +12,7 @@ const INITIAL_SPEED = 1;
 const INITIAL_SPEED_PER_PX = 1;
 const INITIAL_BOX_GENERATION_SPEED = 1500; // Generate boxes every 1.5 seconds
 
-export default function App() {
+export default function Page() {
     const [score, setScore] = useState(0);
     const [lifeline, setLifeline] = useState(3);
     const [gameOver, setGameOver] = useState(false);
