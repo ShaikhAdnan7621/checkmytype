@@ -52,7 +52,7 @@ export default function ProposalPage() {
 
   return (
     <div
-      className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-purple-300 via-pink-300 to-red-300 relative overflow-hidden" // Prevent scrollbars
+      className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-purple-300 via-pink-300 to-red-300 relative overflow-hidden p-4" // Prevent scrollbars
     >
       {showEnvelope && (
         <div className="bg-white rounded-lg shadow-xl p-8 text-center transform transition duration-500 hover:scale-110">
