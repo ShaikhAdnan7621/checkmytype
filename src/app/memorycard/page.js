@@ -182,7 +182,7 @@ export default function Page() {
                     <h2 className="text-center text-3xl text-red-600 font-bold mb-2">
                         You Loss!
                     </h2>
-                    <p className="text-center text-lg text-white mb-4 text-black">
+                    <p className="text-center text-lg text-white mb-4">
                         Better luck next time!
                     </p>
                 </div>

@@ -10,3 +10,9 @@
 .rotate-y-0 {
   transform: rotateY(0deg);
 }
+
+.letterbg{
+    background-size: 100% 100%;
+  background-position: 0px 0px;
+  background-image: conic-gradient(from 135deg at 50% 50%, #731D88FF 0%, #731D88FF 25%, #A82CC7FF 25%, #A82CC7FF 50%, #731D88FF 50%, #731D88FF 75%, #A82CC7FF 75%, #A82CC7FF 100%);
+  }
